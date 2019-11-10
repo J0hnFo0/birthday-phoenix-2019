@@ -17,7 +17,7 @@ var iRow; // initialise current row
 function typewriter() {
   sContents = ' ';
   iRow = Math.max(0, iIndex - iScrollAt);
-  var destination = document.getElementById("typedtext");
+  var destination = document.getElementById("typewriter");
 
   while (iRow < iIndex) {
     sContents += aText[iRow++] + '<br />';
