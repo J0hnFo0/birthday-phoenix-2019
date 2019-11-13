@@ -22,6 +22,13 @@ body {
   height: auto;
 }
 
+.speaker-box {
+  position: absolute;
+  left: 350px;
+  top: 220px;
+  font-size: 2rem;
+}
+
 @-webkit-keyframes bounce-in-top {
   0% {
     -webkit-transform: translateY(-500px);

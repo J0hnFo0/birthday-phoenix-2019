@@ -14,7 +14,7 @@ var iTextPos = 0; // initialise text position
 var sContents = ''; // initialise contents variable
 var iRow; // initialise current row
 
-function typewriter() {
+export function typewriter() {
   sContents = ' ';
   iRow = Math.max(0, iIndex - iScrollAt);
   var destination = document.getElementById("typewriter");
