@@ -4,7 +4,7 @@ window.onload = function () {
   var merrywrap = document.getElementById("merrywrap");
   var box = merrywrap.getElementsByClassName("giftbox")[0];
   var step = 1;
-  var stepMinutes = [2000, 2000, 1000, 1000];
+  var stepMinutes = [2000, 2000, 4000, 4000];
   function init() {
     box.addEventListener("click", openBox, false);
   }
