@@ -13,7 +13,7 @@ window.onload = function () {
     2000];
   function init() {
     box.addEventListener("click", openBox, false);
-    okayButton.addEventListener("click", startPhoenix, false);
+    okayButton.addEventListener("click", startPhonixStory, false);
   }
   function stepClass(step) {
     merrywrap.className = 'merrywrap';
@@ -57,6 +57,11 @@ var iTextPos = 0; // initialise text position
 var sContents = ''; // initialise contents variable
 var iRow; // initialise current row
 
+const intro = new Array(
+  "Hallo Cemile, ich bin dein Freund.",
+  "Möchtest du eine Geschichte hören?"
+);
+
 function typewriter() {
   sContents = ' ';
   iRow = Math.max(0, iIndex - iScrollAt);
@@ -78,48 +83,90 @@ function typewriter() {
   }
 }
 
-function startPhoenix() {
+var storyText = new Array(
+  "Es war einmal ein Phönix.",
+  "Der Phönix war stolz und stark und schön.",
+  "Und als der Phönix sich aus der Asche erhob,",
+  "wollte er fliegen.",
+  "Doch es gab ein Problem....."
+)
+
+function startPhonixStory() {
   clearScreen()
 
-  document.querySelector("body").innerHTML = html;
+  document.querySelector("body").innerHTML = phoenixStory;
+  document.querySelector(".speaker").style.opacity = 1;
+  document.querySelector(".speaker").style.transform = "translateX(-400px)";
+  aText = storyText;
+  typewriter();
+
+  this.setTimeout(startPhoenixFlight, 1000); //12000
 }
 
+var phoenixStory = '    <div class="speaker">' +
+  '      <img src="./images/speaker/bc2b8bcd7a1e98f.png" alt="speaker"/>' +
+  '</div>' +
+  '<div class="speaker-box">' +
+  '<div id="typewriter"></div>' +
+  '</div>'
 
-var html = '<div>'+
-'<img src="../images/phoenix/kisspng-phoenix-drawing-clip-art-phoenix-png-hd-5aa1fc542a9728.2890655215205653321745.png" class="phoenix fall--1">' +
-'    <div class="objects">'+
-'      <div class="object circle"></div>'+
-'      <div class="object square"></div>'+
-'      <div class="object diamond"></div>'+
-'      <div class="object circle"></div>'+
-'      <div class="object square"></div>'+
-'      <div class="object diamond"></div>'+
-'      <div class="object circle"></div>'+
-'      <div class="object square"></div>'+
-'      <div class="object diamond"></div>'+
-'      <div class="object circle"></div>'+
-'      <div class="object square"></div>'+
-'      <div class="object diamond"></div>'+
-'      <div class="object circle"></div>'+
-'      <div class="object square"></div>'+
-'      <div class="object diamond"></div>'+
-'    </div>'+
-'    <div class="full-water">'+
-'      <div class="water">'+
-'        <div class="splash splash--1"></div>'+
-'        <div class="splash splash--2"></div>'+
-'        <div class="splash splash--3"></div>'+
-'        <div class="splash splash--4"></div>'+
-'        <div class="splash splash--5"></div>'+
-'        <div class="splash splash--6"></div>'+
-'        <div class="splash splash--7"></div>'+
-'        <div class="splash splash--8"></div>'+
-'        <div class="splash splash--9"></div>'+
-'        <svg class="wobble" viewBox="0 0 841.9 73.5"><path id="trampoline" fill="#ED1C24" d="M851,79.5H-8V13.4c0,0,243,0,430,0s429,0,429,0V79.5z"></path><animate xlink href="#trampoline" attributeName="d" begin="5.2s" dur="1s" fill="freeze" keyTimes="0; 0.2; 0.5; 1" values="M851,79.5H-8V13.4c0,0,243,0,430,0s429,0,429,0V79.5z; M851,79.5H-8V13.4c0,0,243,10,430,10s429-10,429-10V79.5z; M851,79.5H-8V13.4c0,0,243-4,430-4s429,4,429,4V79.5z; M851,79.5H-8V13.4c0,0,243,0,430,0s429,0,429,0V79.5z;"></animate></svg></div>'+
-'    </div>'+
-'  </div>';
-	
+function startPhoenixFlight() {
+  clearScreen()
 
+  document.querySelector("body").innerHTML = flyOfThePhoenix;
+/*   document.quer("typewriter").style.position = "absolute";
+  document.getElementById("typewriter").style.left = "550px";
+  document.getElementById("typewriter").style.top = "150px";
+  atext = "!JHSDHKHJKHJKHKJH" */
+  typewriter();
+  this.setTimeout(makePhoenixDisapear, 1000)
+}
+
+var flyOfThePhoenix = '<div>' +
+  '<img src="../images/phoenix/kisspng-phoenix-drawing-clip-art-phoenix-png-hd-5aa1fc542a9728.2890655215205653321745.png" class="phoenix fall--1">' +
+  '    <div class="objects">' +
+  '      <div class="object circle"></div>' +
+  '      <div class="object square"></div>' +
+  '      <div class="object diamond"></div>' +
+  '      <div class="object circle"></div>' +
+  '      <div class="object square"></div>' +
+  '      <div class="object diamond"></div>' +
+  '      <div class="object circle"></div>' +
+  '      <div class="object square"></div>' +
+  '      <div class="object diamond"></div>' +
+  '      <div class="object circle"></div>' +
+  '      <div class="object square"></div>' +
+  '      <div class="object diamond"></div>' +
+  '      <div class="object circle"></div>' +
+  '      <div class="object square"></div>' +
+  '      <div class="object diamond"></div>' +
+  '    </div>' +
+  '    <div class="full-water">' +
+  '      <div class="water">' +
+  '        <div class="splash splash--1"></div>' +
+  '        <div class="splash splash--2"></div>' +
+  '        <div class="splash splash--3"></div>' +
+  '        <div class="splash splash--4"></div>' +
+  '        <div class="splash splash--5"></div>' +
+  '        <div class="splash splash--6"></div>' +
+  '        <div class="splash splash--7"></div>' +
+  '        <div class="splash splash--8"></div>' +
+  '        <div class="splash splash--9"></div>' +
+  '        <svg class="wobble" viewBox="0 0 841.9 73.5"><path id="trampoline" fill="#ED1C24" d="M851,79.5H-8V13.4c0,0,243,0,430,0s429,0,429,0V79.5z"></path><animate xlink href="#trampoline" attributeName="d" begin="5.2s" dur="1s" fill="freeze" keyTimes="0; 0.2; 0.5; 1" values="M851,79.5H-8V13.4c0,0,243,0,430,0s429,0,429,0V79.5z; M851,79.5H-8V13.4c0,0,243,10,430,10s429-10,429-10V79.5z; M851,79.5H-8V13.4c0,0,243-4,430-4s429,4,429,4V79.5z; M851,79.5H-8V13.4c0,0,243,0,430,0s429,0,429,0V79.5z;"></animate></svg></div>' +
+  '    </div>' +
+  '<div class="speaker-box">' +
+  '<div id="typewriter"></div>' +
+  '</div>' +
+  '  </div>';
+
+function makePhoenixDisapear() {
+  clearScreen() 
+
+  document.querySelector("body").innerHTML = phoenixDisappear;
+
+}
+
+const phoenixDisappear = '<div class="ph-disappear"><img src="../images/phoenix/kisspng-phoenix-drawing-clip-art-phoenix-png-hd-5aa1fc542a9728.2890655215205653321745.png" /></div>'
 
 function clearScreen() {
   var e = document.querySelector("body");
@@ -131,6 +178,8 @@ function clearScreen() {
     child = e.lastElementChild;
   }
 }
+
+
 
 
 
