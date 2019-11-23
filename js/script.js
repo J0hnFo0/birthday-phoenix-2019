@@ -114,10 +114,10 @@ function startPhoenixFlight() {
   clearScreen()
 
   document.querySelector("body").innerHTML = flyOfThePhoenix;
-/*   document.quer("typewriter").style.position = "absolute";
-  document.getElementById("typewriter").style.left = "550px";
-  document.getElementById("typewriter").style.top = "150px";
-  atext = "!JHSDHKHJKHJKHKJH" */
+  /*   document.quer("typewriter").style.position = "absolute";
+    document.getElementById("typewriter").style.left = "550px";
+    document.getElementById("typewriter").style.top = "150px";
+    atext = "!JHSDHKHJKHJKHKJH" */
   typewriter();
   this.setTimeout(makePhoenixDisapear, 1000)
 }
@@ -160,14 +160,43 @@ var flyOfThePhoenix = '<div>' +
   '  </div>';
 
 function makePhoenixDisapear() {
-  clearScreen() 
+  clearScreen()
 
   document.querySelector("body").innerHTML = phoenixDisappear;
-
+  this.setTimeout(askForHelp, 5000);
 }
 
-const phoenixDisappear = '<div class="ph-disappear"><img src="../images/phoenix/kisspng-phoenix-drawing-clip-art-phoenix-png-hd-5aa1fc542a9728.2890655215205653321745.png" /></div>'
+const phoenixDisappear = '<div class="ph-disappear">' +
+  '<img src="../images/phoenix/kisspng-phoenix-drawing-clip-art-phoenix-png-hd-5aa1fc542a9728.2890655215205653321745.png" />' +
+  '</div>'
 
+function askForHelp() {
+  clearScreen()
+
+  document.querySelector("body").innerHTML = askHelp;
+  document.querySelector("body").innerHTML = phoenixStory;
+  document.querySelector(".speaker").style.opacity = 1;
+  document.querySelector(".speaker").style.transform = "translateX(-400px)";
+  typewriter()
+
+  setTimeout(
+    document.querySelector("body").innerHTML = helpButton, 5000
+  )
+}  
+
+const askHelp = '    <div class="speaker">' +
+'      <img src="./images/speaker/bc2b8bcd7a1e98f.png" alt="speaker"/>' +
+'</div>' +
+'<div class="speaker-box">' +
+'<div id="typewriter"></div>' +
+'</div>'
+
+const helpButton = '<button id="okay-button" onClick="fireworks()">Ja,ich helfe dem Phönix!</button>';
+
+
+function fireworks() {
+  console.log("fireworks")
+}
 function clearScreen() {
   var e = document.querySelector("body");
   console.log("clearscreen")
