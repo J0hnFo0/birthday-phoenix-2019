@@ -182,6 +182,7 @@ function askForHelp() {
   setTimeout(
     document.querySelector("body").innerHTML = helpButton, 5000
   )
+
 }  
 
 const askHelp = '    <div class="speaker">' +
@@ -195,8 +196,27 @@ const helpButton = '<button id="okay-button" onClick="fireworks()">Ja,ich helfe 
 
 
 function fireworks() {
-  console.log("fireworks")
+  clearScreen();
+  document.querySelector("body").innerHTML = firework;
+  document.querySelector("speaker-container").innerHTML = speaker;
+  document.querySelector(".speaker").style.opacity = 1;
+  document.querySelector(".speaker").style.transform = "translateX(-400px)";
+  typewriter()
+
 }
+
+const speaker = '    <div class="speaker">' +
+'      <img src="./images/speaker/bc2b8bcd7a1e98f.png" alt="speaker"/>' +
+'</div>' +
+'<div class="speaker-box">' +
+'<div id="typewriter"></div>' +
+'</div>'
+
+const firework = '<div class="pyro">' +
+'<div class="before"></div>' +
+'<div class="after"></div>' +
+'</div>'
+'<div class="speaker-container></div>'
 function clearScreen() {
   var e = document.querySelector("body");
   console.log("clearscreen")
