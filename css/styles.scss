@@ -29,12 +29,17 @@ body {
   font-size: 2rem;
 }
 
+.speaker-visible {
+  opacity: 1;
+  transform: translateX(-425px);
+}
+
 #okay-button {
   z-index: 999;
   position: absolute;
-  left: 550px;
-  top: 330px;
-  opacity: 1;
+  left: 575px;
+  top: 400px;
+  opacity: 0;
   border-radius: 25px;
   border: none;
   color: white;
@@ -43,6 +48,7 @@ body {
   text-align: center;
   display: inline-block;
   background-color: #4CAF50;
+  font-size: 1.5 rem;
 }
 
 /* ----------------------------------------------
@@ -859,8 +865,10 @@ body {
 }
 
 .ph-disappear {
-  width: 150px;
+  display: flex;
+  width: 100%;
   height: auto;
+  justify-content: center;
   animation: fade-out 5s ease-out both;
 }
 
@@ -992,4 +1000,8 @@ body {
      margin-left: 80%;
    }
  }
+
+ .rotate-in-center{-webkit-animation:rotate-in-center .6s cubic-bezier(.25,.46,.45,.94) both;animation:rotate-in-center .6s cubic-bezier(.25,.46,.45,.94) both}
+
+@-webkit-keyframes rotate-in-center{0%{-webkit-transform:rotate(-360deg);transform:rotate(-360deg);opacity:0}100%{-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}@keyframes rotate-in-center{0%{-webkit-transform:rotate(-360deg);transform:rotate(-360deg);opacity:0}100%{-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}
  
