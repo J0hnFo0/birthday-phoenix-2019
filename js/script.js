@@ -183,6 +183,7 @@ var helpText = new Array(
   "Kannst du dem Phönix helfen?",
 )
 
+
 function callForHelp() {
   clearScreen()
   document.querySelector("body").innerHTML = speaker;
@@ -191,17 +192,20 @@ function callForHelp() {
   resetTypewriter();
   typewriter();
 
-  /* setTimeout(
-    document.querySelector("body").innerHTML = helpButton, 5000
-  ) */
+  let helpButton = "<button>Jaaa, ich helfe dem Phönix!</button>";
+  let body = document.querySelector("body");
+  body.appendChild(helpButton)
+  helpButton.id = "help-button"
+  helpButton.addEventListener("click", startFireworks());
 
+  setTimeout(
+    helpButton.style.opacity = "1"
+    , 7000
+  )
+  console.log(body)
 }
 
-
-const helpButton = '<button id="okay-button" onClick="fireworks()">Ja,ich helfe dem Phönix!</button>';
-
-
-function fireworks() {
+function startFireworks() {
   clearScreen();
   document.querySelector("body").innerHTML = firework;
 
@@ -209,9 +213,6 @@ function fireworks() {
   document.querySelector(".speaker").style.opacity = 1;
   document.querySelector(".speaker").style.transform = "translateX(-400px)";
   typewriter()
-
-
-
 }
 
 
