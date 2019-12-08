@@ -205,22 +205,30 @@ function callForHelp() {
   console.log(body)
 }
 
+const juhu = new Array(
+  "Juhuuu, du hilfst dem Phönix!",
+  "Dann möchte ich dir auch dabei helfen,",
+  "in dem ich dir einen Gutschein...",
+  "in Höhe von 50% der Tattookosten schenke!!!",
+)
+
 function startFireworks() {
   clearScreen();
-  document.querySelector("body").innerHTML = firework;
-
-  document.querySelector("speaker-container").innerHTML = speaker;
-  document.querySelector(".speaker").style.opacity = 1;
-  document.querySelector(".speaker").style.transform = "translateX(-400px)";
+  document.querySelector("body").innerHTML = fireworkSpeaker; 
   typewriter()
 }
 
 
-const firework = '<div class="pyro">' +
+const fireworkSpeaker =
+  '<div>' +
+  speaker +
+  '<div class="pyro">' +
   '<div class="before"></div>' +
   '<div class="after"></div>' +
+  '</div>' +
   '</div>'
-'<div class="speaker-container></div>'
+
+
 
 function clearScreen() {
   var e = document.querySelector("body");
