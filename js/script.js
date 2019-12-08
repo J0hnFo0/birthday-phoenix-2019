@@ -45,8 +45,8 @@ window.onload = function () {
 
 // set up text to print, each item in array is new line
 var aText = new Array(
-  "Hallo Cemile, ich heiße Tiko",
-  "Ich bin dein Freund",
+  "Hallo Cemile, ich heiße Tiko.",
+  "Ich bin dein Freund.",
   "Möchtest du eine Geschichte hören?"
 );
 
@@ -86,7 +86,6 @@ function resetTypewriter() {
 
   iTextPos = 0;
   sContents = '';
-  console.log("iIndex", iIndex, "iArrLength", iArrLength, iTextPos, sContents)
 }
 
 var startStoryText = new Array(
@@ -183,6 +182,10 @@ var helpText = new Array(
   "Kannst du dem Phönix helfen?",
 )
 
+const helpButton =
+  '<button id="help-button" onclick="startFireworks()">' +
+  'Jaaa, ich helfe dem Phönix!' +
+  '</button>'
 
 function callForHelp() {
   clearScreen()
@@ -192,17 +195,12 @@ function callForHelp() {
   resetTypewriter();
   typewriter();
 
-  let helpButton = "<button>Jaaa, ich helfe dem Phönix!</button>";
-  let body = document.querySelector("body");
-  body.appendChild(helpButton)
-  helpButton.id = "help-button"
-  helpButton.addEventListener("click", startFireworks());
-
+  document.body.innerHTML += '<div class="b-box"></div>'
+  document.querySelector(".b-box").innerHTML = helpButton;
   setTimeout(
-    helpButton.style.opacity = "1"
-    , 7000
+    document.querySelector("#help-button").style.opacity = "1"
+    , 10000
   )
-  console.log(body)
 }
 
 const juhu = new Array(
@@ -210,6 +208,7 @@ const juhu = new Array(
   "Dann möchte ich dir auch dabei helfen,",
   "in dem ich dir einen Gutschein...",
   "in Höhe von 50% der Tattookosten schenke!!!",
+  "Herzlichen Glückwunsch und alles alles Gute zum Geburtstag!"
 )
 
 function startFireworks() {
@@ -217,8 +216,9 @@ function startFireworks() {
   document.querySelector("body").innerHTML = fireworkSpeaker;
   aText = juhu;
   typewriter()
+  document.body.innerHTML += '<div class="b-text"></div>'
+  document.querySelector(".b-text").innerHTML = icons;
 }
-
 
 const fireworkSpeaker =
   '<div>' +
@@ -229,7 +229,37 @@ const fireworkSpeaker =
   '</div>' +
   '</div>'
 
-
+const icons =
+  '<div class="icons">' +
+  '<div class="row">' +
+  '<span>L</span>' +
+  '<span>i</span>' +
+  '<span>e</span>' +
+  '<span>b</span>' +
+  '<span>e</span>' +
+  '<span>C</span>' +
+  '<span>e</span>' +
+  '<span>m</span>' +
+  '<span>i</span>' +
+  '<span>l</span>' +
+  '<span>e</span>' +
+  '</div>' +
+  '<div class="row">' +
+  '<span class="letter">a</span>' +
+  '<span class="letter">p</span>' +
+  '<span class="letter">p</span>' +
+  '<span class="letter">H</span>' +
+  '<span class="lett<er">y</span>' +
+  '<span class="letter">B</span>' +
+  '<span class="letter">i</span>' +
+  '<span class="letter">r</span>' +
+  '<span class="letter">t</span>' +
+  '<span class="letter">h</span>' +
+  '<span class="letter">d</span>' +
+  '<span class="letter">a</span>' +
+  '<span class="letter">y</span>' +
+  '</div> ' +
+  '</div>'
 
 function clearScreen() {
   var e = document.querySelector("body");
