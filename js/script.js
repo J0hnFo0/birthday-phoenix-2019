@@ -208,7 +208,8 @@ const juhu = new Array(
   "Dann möchte ich dir auch dabei helfen,",
   "in dem ich dir einen Gutschein...",
   "in Höhe von 50% der Tattookosten schenke!!!",
-  "Herzlichen Glückwunsch und alles alles Gute zum Geburtstag!"
+  "Herzlichen Glückwunsch und alles alles Gute zum Geburtstag!",
+  "Ich liebe Dich mein Schatz! :-)"
 )
 
 function startFireworks() {
