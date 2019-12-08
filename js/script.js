@@ -214,7 +214,8 @@ const juhu = new Array(
 
 function startFireworks() {
   clearScreen();
-  document.querySelector("body").innerHTML = fireworkSpeaker; 
+  document.querySelector("body").innerHTML = fireworkSpeaker;
+  aText = juhu;
   typewriter()
 }
 
