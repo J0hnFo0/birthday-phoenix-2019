@@ -9,8 +9,8 @@ window.onload = function () {
     2000,
     2000,
     4000,
-    14000,
-    2000];
+    12000,
+  ];
   function init() {
     box.addEventListener("click", openBox, false);
     okayButton.addEventListener("click", startPhonixStory, false);
@@ -27,6 +27,7 @@ window.onload = function () {
     if (step === 3) {
     }
     if (step === 4) {
+      typewriter();
     }
     if (step === 5) {
       return
@@ -37,7 +38,6 @@ window.onload = function () {
 
   init();
 
-  setTimeout(typewriter, 12000)
 
 
 }
@@ -45,9 +45,11 @@ window.onload = function () {
 
 // set up text to print, each item in array is new line
 var aText = new Array(
-  "Hallo Cemile, ich bin dein Freund.",
+  "Hallo Cemile, ich heiße Tiko.",
+  "Ich bin dein Freund.",
   "Möchtest du eine Geschichte hören?"
 );
+
 var iSpeed = 100; // time delay of print out
 var iIndex = 0; // start printing array at this posision
 var iArrLength = aText[0].length; // the length of the text array
@@ -56,11 +58,6 @@ var iScrollAt = 20; // start scrolling up at this many lines
 var iTextPos = 0; // initialise text position
 var sContents = ''; // initialise contents variable
 var iRow; // initialise current row
-
-const intro = new Array(
-  "Hallo Cemile, ich bin dein Freund.",
-  "Möchtest du eine Geschichte hören?"
-);
 
 function typewriter() {
   sContents = ' ';
@@ -80,50 +77,61 @@ function typewriter() {
     }
   } else {
     setTimeout("typewriter()", iSpeed);
-  }
+  } iSpeed = 150;
 }
 
-var storyText = new Array(
+function resetTypewriter() {
+  iIndex = 0;
+  iArrLength = aText[0].length;
+
+  iTextPos = 0;
+  sContents = '';
+}
+
+var startStoryText = new Array(
   "Es war einmal ein Phönix.",
-  "Der Phönix war stolz und stark und schön.",
-  "Und als der Phönix sich aus der Asche erhob,",
-  "wollte er fliegen.",
-  "Doch es gab ein Problem....."
+  "Der Phönix war stolz und stark und schön,",
+  "und erhob sich aus der Asche in die Lüfte.",
+  "Doch als er fliegen wollte... gab es ein Problem."
 )
+
+const speaker = '<div class="speaker speaker-visible">' +
+  '<img src="./images/speaker/bc2b8bcd7a1e98f.png" alt="speaker"/>' +
+  '</div>' +
+  '<div class="speaker-box">' +
+  '<div id="typewriter">' +
+  '</div>'
 
 function startPhonixStory() {
   clearScreen()
+  document.querySelector("body").innerHTML = speaker;
 
-  document.querySelector("body").innerHTML = phoenixStory;
-  document.querySelector(".speaker").style.opacity = 1;
-  document.querySelector(".speaker").style.transform = "translateX(-400px)";
-  aText = storyText;
+  aText = startStoryText;
+  resetTypewriter()
   typewriter();
 
-  this.setTimeout(startPhoenixFlight, 1000); //12000
+  setTimeout(startPhoenixFlight, 13000); //12000
 }
 
-var phoenixStory = '    <div class="speaker">' +
-  '      <img src="./images/speaker/bc2b8bcd7a1e98f.png" alt="speaker"/>' +
-  '</div>' +
-  '<div class="speaker-box">' +
-  '<div id="typewriter"></div>' +
-  '</div>'
+var storyWhileFlight = new Array(
+  "Der Phönix konnte nicht fliegen",
+  "denn er war nicht.......",
+  "vollständig."
+)
 
 function startPhoenixFlight() {
   clearScreen()
-
   document.querySelector("body").innerHTML = flyOfThePhoenix;
-/*   document.quer("typewriter").style.position = "absolute";
-  document.getElementById("typewriter").style.left = "550px";
-  document.getElementById("typewriter").style.top = "150px";
-  atext = "!JHSDHKHJKHJKHKJH" */
+
+  aText = storyWhileFlight;
+  resetTypewriter()
   typewriter();
-  this.setTimeout(makePhoenixDisapear, 1000)
+
+  this.setTimeout(makePhoenixDisapear, 10000)
 }
 
 var flyOfThePhoenix = '<div>' +
-  '<img src="../images/phoenix/kisspng-phoenix-drawing-clip-art-phoenix-png-hd-5aa1fc542a9728.2890655215205653321745.png" class="phoenix fall--1">' +
+  '<img src="../images/phoenix/kisspng-phoenix-drawing-clip-art-phoenix-png-hd-5aa1fc542a97282890655215205653321745.png" class="phoenix fall--1">' +
   '    <div class="objects">' +
   '      <div class="object circle"></div>' +
   '      <div class="object square"></div>' +
@@ -157,16 +165,102 @@ var flyOfThePhoenix = '<div>' +
   '<div class="speaker-box">' +
   '<div id="typewriter"></div>' +
   '</div>' +
-  '  </div>';
+  '</div>';
+
+const phoenixDisappear = '<div class="ph-disappear">' +
+  '<img src="../images/phoenix/kisspng-phoenix-drawing-clip-art-phoenix-png-hd-5aa1fc542a9728.2890655215205653321745.png" />' +
+  '</div>'
 
 function makePhoenixDisapear() {
-  clearScreen() 
+  clearScreen()
 
   document.querySelector("body").innerHTML = phoenixDisappear;
-
+  setTimeout(callForHelp, 8000);
 }
 
-const phoenixDisappear = '<div class="ph-disappear"><img src="../images/phoenix/kisspng-phoenix-drawing-clip-art-phoenix-png-hd-5aa1fc542a9728.2890655215205653321745.png" /></div>'
+var helpText = new Array(
+  "Kannst du dem Phönix helfen?",
+)
+
+const helpButton =
+  '<button id="help-button" onclick="startFireworks()">' +
+  'Jaaa, ich helfe dem Phönix!' +
+  '</button>'
+
+function callForHelp() {
+  clearScreen()
+  document.querySelector("body").innerHTML = speaker;
+
+  aText = helpText;
+  resetTypewriter();
+  typewriter();
+
+  document.body.innerHTML += '<div class="b-box"></div>'
+  document.querySelector(".b-box").innerHTML = helpButton;
+  setTimeout(
+    document.querySelector("#help-button").style.opacity = "1"
+    , 10000
+  )
+}
+
+const juhu = new Array(
+  "Juhuuu, du hilfst dem Phönix!",
+  "Dann möchte ich dir auch dabei helfen,",
+  "in dem ich dir einen Gutschein...",
+  "in Höhe von 50% der Tattookosten schenke!!!",
+  "Herzlichen Glückwunsch und alles alles Gute zum Geburtstag!",
+  "Ich liebe Dich mein Schatz! :-)"
+)
+
+function startFireworks() {
+  clearScreen();
+  document.querySelector("body").innerHTML = fireworkSpeaker;
+  aText = juhu;
+  typewriter()
+  document.body.innerHTML += '<div class="b-text"></div>'
+  document.querySelector(".b-text").innerHTML = icons;
+}
+
+const fireworkSpeaker =
+  '<div>' +
+  speaker +
+  '<div class="pyro">' +
+  '<div class="before"></div>' +
+  '<div class="after"></div>' +
+  '</div>' +
+  '</div>'
+
+const icons =
+  '<div class="icons">' +
+  '<div class="row">' +
+  '<span>L</span>' +
+  '<span>i</span>' +
+  '<span>e</span>' +
+  '<span>b</span>' +
+  '<span>e</span>' +
+  '<span>C</span>' +
+  '<span>e</span>' +
+  '<span>m</span>' +
+  '<span>i</span>' +
+  '<span>l</span>' +
+  '<span>e</span>' +
+  '</div>' +
+  '<div class="row">' +
+  '<span class="letter">a</span>' +
+  '<span class="letter">p</span>' +
+  '<span class="letter">p</span>' +
+  '<span class="letter">H</span>' +
+  '<span class="lett<er">y</span>' +
+  '<span class="letter">B</span>' +
+  '<span class="letter">i</span>' +
+  '<span class="letter">r</span>' +
+  '<span class="letter">t</span>' +
+  '<span class="letter">h</span>' +
+  '<span class="letter">d</span>' +
+  '<span class="letter">a</span>' +
+  '<span class="letter">y</span>' +
+  '</div> ' +
+  '</div>'
 
 function clearScreen() {
   var e = document.querySelector("body");
@@ -180,16 +274,3 @@ function clearScreen() {
 }
 
 
-
-
-
-// Phoenix 
-
-// Canvas drawn
-// https://codepen.io/Vaddo/pen/niGJw
-
-// disappearing
-// https://codepen.io/cgorton/pen/BYKLQd
-
-// falling numbers
-// https://codepen.io/ThibaultJanBeyer/pen/JKYPZZ
