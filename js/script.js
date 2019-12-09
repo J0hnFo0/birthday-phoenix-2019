@@ -168,7 +168,7 @@ var flyOfThePhoenix = '<div>' +
   '</div>';
 
 const phoenixDisappear = '<div class="ph-disappear">' +
-  '<img src="../images/phoenix/kisspng-phoenix-drawing-clip-art-phoenix-png-hd-5aa1fc542a9728.2890655215205653321745.png" />' +
+  '<img src="../images/phoenix/kisspng-phoenix-drawing-clip-art-phoenix-png-hd-5aa1fc542a97282890655215205653321745.png" />' +
   '</div>'
 
 function makePhoenixDisapear() {
