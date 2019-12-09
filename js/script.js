@@ -131,7 +131,7 @@ function startPhoenixFlight() {
 }
 
 var flyOfThePhoenix = '<div>' +
-  '<img src="../images/phoenix/kisspng-phoenix-drawing-clip-art-phoenix-png-hd-5aa1fc542a9728.2890655215205653321745.png" class="phoenix fall--1">' +
+  '<img src="../images/phoenix/kisspng-phoenix-drawing-clip-art-phoenix-png-hd-5aa1fc542a97282890655215205653321745.png" class="phoenix fall--1">' +
   '    <div class="objects">' +
   '      <div class="object circle"></div>' +
   '      <div class="object square"></div>' +
